@@ -1,0 +1,28 @@
+<h2>Register</h2>
+
+<form name="form" ng-submit="register()" novalidate>
+  <div class="form-group required">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email" name="email" ng-model="formData.email" required>
+    <div ng-messages="form.email.$error" ng-show="form.email.$touched" class="error-message" role="alert">
+      <div ng-message="required">Email field is required.</div>
+      <div ng-message="email">Invalid email address.</div>
+    </div>
+  </div>
+  <div class="form-group required">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" id="name" name="name" ng-model="formData.name" required>
+    <div ng-messages="form.name.$error" ng-show="form.name.$touched" class="error-message" role="alert">
+      <div ng-message="required">Name field is required.</div>
+    </div>
+  </div>
+  <div class="form-group required">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" id="password" name="password" ng-model="formData.password" required ng-minlength="6">
+    <div ng-messages="form.password.$error" ng-show="form.password.$touched" class="error-message" role="alert">
+      <div ng-message="required">Password field is required.</div>
+      <div ng-message="minlength">Minimum length of password field is 6.</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Register</button>
+</form>

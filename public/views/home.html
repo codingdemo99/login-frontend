@@ -1,0 +1,14 @@
+<div class="jumbotron text-center">
+    <div ng-if="isLogin">
+        <h1>Welcome, {{user.name}}</h1>
+        <h2>Email: {{user.email}}</h2>
+        <br>
+        <button class="btn btn-default" ng-click="logout()">Logout</button>
+    </div>
+
+    <div ng-if="!isLogin">
+        <h1>Welcome, Guest</h1>
+        <button class="btn btn-default" ui-sref="login">Login Now</button>
+        <button class="btn btn-default" ui-sref="register">Register Now</button>
+    </div>
+</div>
