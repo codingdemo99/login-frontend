@@ -66,8 +66,6 @@ app.factory('UserFunction', ['$rootScope', '$window', '$http', '$state',
 
         function logout() {
             if (isAuthTokenAvailable()) {
-                $window.localStorage.removeItem(localStorageKey.userAuth);
-
                 $http({
                     method: 'POST',
                     url: restApiBaseUrl + 'v1/oauth/revoke',
@@ -78,10 +76,12 @@ app.factory('UserFunction', ['$rootScope', '$window', '$http', '$state',
                     alert('Logout successful');
                     $state.go('home');
                     $rootScope.isLogin = false;
+                    $window.localStorage.removeItem(localStorageKey.userAuth);
                 }, function (errRes) {
                     alert('Logout successful');
                     $state.go('home');
                     $rootScope.isLogin = false;
+                    $window.localStorage.removeItem(localStorageKey.userAuth);
                 });
             }
         }
